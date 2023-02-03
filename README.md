@@ -15,7 +15,11 @@
 Previoulsy I worked as a travel medicine consultant, providing people with travel vaccine reccomendations based on their destination. It has been a goal to try an automate some of the process via an application that could take in a travelers details and provide an individual specific recommendation for that upcoming trip. While I plan to start with some constraints in place, I hope to eventually expand the project to be used in all instances of travel.
 
 **User Stories**
+- As a user I want to be able to generate a report of vaccine recommendations for a country
 - As a user I want to be able to select my country of destination
-- As a user I want to be able to input relevant information to get a personalized recommendation
-- As a user I want to be able to view the list of vaccines that are recommended
 - As a user I want to be able to select the vaccines I have received and remove them from the list
+- As a user I want to be able to input relevant information to get a personalized recommendation
+
+
+
+
