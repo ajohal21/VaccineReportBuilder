@@ -1,24 +1,25 @@
-# Travel Vaccine Recommendation Tool
+# Travel Vaccine Report Builder
 
-## A tool that creates a personalized travel vaccine list for a user going to their indicated destination
+## A tool for pharmacists that creates a personalized report containing travel vaccines  for a patient's trip to their indicated destination
 
 **What this project will do:**
-- Users will select their destination from a list of destinations
-- The tool will provide country specific recommendations for appropriate travel vaccines
-- List the required vaccine dosage and schedule given a *persons age*, *risk factors*, and *previous vaccination history*
+- Users will input patient information (name and age)
+- Users will input the patient destination(s)
+- The user will then add the recommended vaccines
+-  A report will be made containing patient information, destinations and recommended vaccines
 
 **Who will use this project:**
-- This project is primarily aimed at all travellers. This will provide up to date information about travel vaccinations to ensure every user is protecting their health whilst travelling.
+- This project is to be used by pharmacists (and other travel health experts)
 
 **Why this project is of interest:**
-
-Previoulsy I worked as a travel medicine consultant, providing people with travel vaccine reccomendations based on their destination. It has been a goal to try an automate some of the process via an application that could take in a travelers details and provide an individual specific recommendation for that upcoming trip. While I plan to start with some constraints in place, I hope to eventually expand the project to be used in all instances of travel.
+- Previoulsy I worked as a travel medicine consultant conducting pre-travel appointments and providing patients with a report of what vaccines they need based on where they are going. I am hoping this tool will be able to create reports that patients can reference and expidites the process for the consultant in generating the report.
 
 **User Stories**
-- As a user I want to be able to generate a report of vaccine recommendations for a country
-- As a user I want to be able to select my country of destination
-- As a user I want to be able to select the vaccines I have received and remove them from the list
-- As a user I want to be able to input relevant information to get a personalized recommendation
+- As a user I want to be able to generate a report of vaccine recommendations for a given person's destination(s)
+- As a user I want to be able to save the generated reports
+- As a user I want to be able to see a list of reports made 
+- As a user I want to be able to select reports and view them in detail
+
 
 
 
