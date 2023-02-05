@@ -25,4 +25,24 @@ class InformationTest {
         assertEquals("vaccine", info1.getVaccineInfo());
     }
 
+    @Test
+    public void testSetters(){
+        assertEquals("name", info1.getPersonName());
+        assertEquals(0, info1.getAge());
+        assertEquals("country", info1.getCountryName());
+        assertEquals("vaccine", info1.getVaccineInfo());
+
+        info1.setPersonName("new name");
+        info1.setAge(20);
+        info1.setCountryName("new country");
+        info1.setVaccineInfo("new vaccine");
+
+        assertEquals("new name", info1.getPersonName());
+        assertEquals(20, info1.getAge());
+        assertEquals("new country", info1.getCountryName());
+        assertEquals("new vaccine", info1.getVaccineInfo());
+
+
+    }
+
 }
