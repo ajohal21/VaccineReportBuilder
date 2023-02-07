@@ -12,13 +12,13 @@ class ReportTest {
 
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         info1 = new Report("name", 0 , "country", "vaccine");
 
     }
 
     @Test
-    public void testInformationConstructor(){
+    public void testInformationConstructor() {
         assertEquals("name", info1.getPersonName());
         assertEquals(0, info1.getAge());
         assertEquals("country", info1.getCountryName());
@@ -26,7 +26,7 @@ class ReportTest {
     }
 
     @Test
-    public void testSetters(){
+    public void testSetters() {
         assertEquals("name", info1.getPersonName());
         assertEquals(0, info1.getAge());
         assertEquals("country", info1.getCountryName());

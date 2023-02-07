@@ -98,6 +98,8 @@ public class ReportApp {
 
         lib.addInfo(report1);
 
+        System.out.println("\nReport Created! Report saved to Report Library!");
+
     }
 
     // REQUIRES:
@@ -112,8 +114,9 @@ public class ReportApp {
     // MODIFIES:
     // EFFECTS:
     private void viewReports() {
+        System.out.println("Viewing All Reports: \n");
         for (Report reports : lib.getReportList()) {
-            System.out.println(reports.getPersonName());
+            System.out.println(reports.getPersonName() + "--" + reports.getCountryName());
         }
     }
 }
