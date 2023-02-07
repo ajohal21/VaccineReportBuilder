@@ -7,6 +7,9 @@ public class Report {
     private String countryName;
     private String vaccineInfo;
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS:
     public Report(String personName, Integer age, String countryName, String vaccineInfo) {
         this.personName = personName;
         this.age = age;
