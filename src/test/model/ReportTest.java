@@ -5,15 +5,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class InformationTest {
+class ReportTest {
 
-    private Information info1;
-    private Information info2;
+    private Report info1;
+    private Report info2;
 
 
     @BeforeEach
     public void setup(){
-        info1 = new Information("name", 0 , "country", "vaccine");
+        info1 = new Report("name", 0 , "country", "vaccine");
 
     }
 

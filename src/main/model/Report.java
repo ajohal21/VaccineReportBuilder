@@ -1,13 +1,13 @@
 package model;
 
-public class Information {
+public class Report {
 
     private String personName;
     private int age;
     private String countryName;
     private String vaccineInfo;
 
-    public Information(String personName, Integer age, String countryName, String vaccineInfo) {
+    public Report(String personName, Integer age, String countryName, String vaccineInfo) {
         this.personName = personName;
         this.age = age;
         this.countryName = countryName;
@@ -47,5 +47,8 @@ public class Information {
         this.vaccineInfo = vaccineInfo;
     }
 
-
+//    @Override
+//    public String toString() {
+//        return "Report{" + "personName='" + personName + '\'' + ", age=" + age + ", countryName='" + countryName + '\'' + ", vaccineInfo='" + vaccineInfo + '\'' + '}';
+//    }
 }
