@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class VaccineMapTest {
 
@@ -23,5 +24,10 @@ public class VaccineMapTest {
         assertEquals("Rabies \n Dosage: 1ml \n Frequency: Day 0, 7, and 21",
                 vaxMap.getSpecificVaccine("Rabies"));
 
+    }
+
+    @Test
+    public void testGetSpecificVaccineVoid() {
+        assertNull(vaxMap.getSpecificVaccine(""));
     }
 }

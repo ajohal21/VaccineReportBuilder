@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class ReportLibraryTest {
 
@@ -73,6 +74,11 @@ class ReportLibraryTest {
         reportLibrary1.addInfo(info2);
         assertEquals(info2, reportLibrary1.getSpecificReport("Test2"));
         assertEquals(info1, reportLibrary1.getSpecificReport("name"));
+    }
+
+    @Test
+    public void testPrintSpecificReportNull() {
+        assertNull(reportLibrary1.getSpecificReport(""));
     }
 
 
