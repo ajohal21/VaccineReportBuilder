@@ -8,7 +8,9 @@ public class VaccineMap {
 
     private HashMap<String, String> vaccines;
 
-
+    // REQUIRES:
+    // MODIFIES: this
+    // EFFECTS: Creates a VaccineMap object, with vaccine name as the key
     public VaccineMap() {
         vaccines = new HashMap<>();
         vaccines.put("Hepatitis A", "Hepatitis A \n Dosage: 1ml \n Frequency: Zero and 6 months");
@@ -18,7 +20,9 @@ public class VaccineMap {
 
     }
 
-
+    // REQUIRES: vaccineTyped exists in the map as a key
+    // MODIFIES:
+    // EFFECTS: produces the string value which contains all the appropriate vaccine info
     public String getSpecificVaccine(String vaccineTyped) {
         if (vaccines.containsKey(vaccineTyped)) {
             return vaccines.get(vaccineTyped);

@@ -8,8 +8,8 @@ import java.util.Locale;
 import java.util.Scanner;
 
 
-
-
+//Credit to: https://github.students.cs.ubc.ca/CPSC210/TellerApp.git teller app for the code structure
+//Report Application
 public class ReportApp {
 
     private Report report;
@@ -23,7 +23,7 @@ public class ReportApp {
 
     // REQUIRES:
     // MODIFIES:
-    // EFFECTS:
+    // EFFECTS: Runs the report Application
     private void runApplication() {
         boolean keepGoing = true;
         String command = null;
@@ -46,8 +46,8 @@ public class ReportApp {
     }
 
     // REQUIRES:
-    // MODIFIES:
-    // EFFECTS:
+    // MODIFIES: this
+    // EFFECTS: runs the user command
     private void processCommond(String command) {
         if (command.equals("m")) {
             makeReport();
@@ -64,8 +64,8 @@ public class ReportApp {
 
 
     // REQUIRES:
-    // MODIFIES:
-    // EFFECTS:
+    // MODIFIES: this
+    // EFFECTS: initializes the report library, vaccineMap, and the scanner
     private void init() {
         lib = new ReportLibrary("Set 1");
         vax = new VaccineMap();
@@ -75,7 +75,7 @@ public class ReportApp {
 
     // REQUIRES:
     // MODIFIES:
-    // EFFECTS:
+    // EFFECTS: Shows menus options to the user
     private void displayMenu() {
         System.out.println("\nWelcome to the Travel Report Builder");
         System.out.println("\nSelect from:");
@@ -87,8 +87,8 @@ public class ReportApp {
     }
 
     // REQUIRES:
-    // MODIFIES:
-    // EFFECTS:
+    // MODIFIES: this
+    // EFFECTS: user is guided through the process of making a new report
     private void makeReport() {
         //Information info = new Information();
         System.out.println("Enter the patient's name");
@@ -123,7 +123,7 @@ public class ReportApp {
 
     // REQUIRES:
     // MODIFIES:
-    // EFFECTS:
+    // EFFECTS: Prints all reports
     private void printInfo() {
 
         System.out.println(lib.printReport());
@@ -131,7 +131,7 @@ public class ReportApp {
 
     // REQUIRES:
     // MODIFIES:
-    // EFFECTS:
+    // EFFECTS: Shows the user all reports in the form name -- destination
     private void viewReports() {
         System.out.println("Viewing All Reports: \n");
         for (Report reports : lib.getReportList()) {
@@ -139,9 +139,11 @@ public class ReportApp {
 
         }
 
-
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: prompts user to enter a name and prints the corresponding report
     private void printSpecificReport() {
         System.out.println("Please Enter a Patient's name to print their report (or q to return to menu");
         boolean keepGoing = true;

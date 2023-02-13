@@ -10,8 +10,8 @@ public class ReportLibrary {
 
 
     // REQUIRES:
-    // MODIFIES:
-    // EFFECTS:
+    // MODIFIES: this
+    // EFFECTS: Creates a report library object
     public ReportLibrary(String title) {
         this.title = title;
         reportList = new ArrayList<>();
@@ -30,7 +30,7 @@ public class ReportLibrary {
 
     // REQUIRES:
     // MODIFIES:
-    // EFFECTS:
+    // EFFECTS: returns the arrayList of reports in the libary
     public ArrayList<Report> getReportList() {
         return reportList;
     }
@@ -44,7 +44,7 @@ public class ReportLibrary {
 
     // REQUIRES:
     // MODIFIES:
-    // EFFECTS:
+    // EFFECTS: Returns the size of the reportList
     public int getInfoListSize() {
         return reportList.size();
     }

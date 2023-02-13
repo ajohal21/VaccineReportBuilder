@@ -10,8 +10,8 @@ public class Report {
     private ArrayList<String> vaccineInfo;
 
     // REQUIRES:
-    // MODIFIES:
-    // EFFECTS:
+    // MODIFIES: this
+    // EFFECTS: constructor
     public Report(String personName, Integer age, String countryName) {
         this.personName = personName;
         this.age = age;
@@ -52,8 +52,13 @@ public class Report {
         vaccineInfo.add(vaccine);
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: Returns a formatted string
     @Override
     public String toString() {
-        return "Travel Report for " +  personName + "\n Age: " + age + "\n Country: " + countryName + "\n Vaccines: " + vaccineInfo;
+        return "Travel Report for "
+                +  personName + "\n Age: " + age + "\n Country: " + countryName + "\n Vaccines: " + vaccineInfo;
+
     }
 }
