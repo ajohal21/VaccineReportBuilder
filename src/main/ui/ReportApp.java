@@ -2,6 +2,7 @@ package ui;
 
 import model.Report;
 import model.ReportLibrary;
+import model.VaccineMap;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -13,6 +14,7 @@ public class ReportApp {
 
     private Report report;
     private ReportLibrary lib;
+    private VaccineMap vax;
     private Scanner input;
 
     public ReportApp() {
@@ -53,17 +55,20 @@ public class ReportApp {
             printInfo();
         } else if (command.equals("v")) {
             viewReports();
+        } else if (command.equals("s")) {
+            printSpecificReport();
         } else {
             System.out.println("Selection not valid...");
         }
     }
+
 
     // REQUIRES:
     // MODIFIES:
     // EFFECTS:
     private void init() {
         lib = new ReportLibrary("Set 1");
-
+        vax = new VaccineMap();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
@@ -76,6 +81,7 @@ public class ReportApp {
         System.out.println("\nSelect from:");
         System.out.println("\tm -> Make new report");
         System.out.println("\tv -> View Reports");
+        System.out.println("\ts -> Print Specific Report");
         System.out.println("\tp -> Print Report Library");
         System.out.println("\tq -> quit");
     }
@@ -91,10 +97,23 @@ public class ReportApp {
         Integer age = input.nextInt();
         System.out.println("Enter the travel destination(s)");
         String countryNames = input.next();
-        System.out.println("Enter the vaccines needed");
-        String vaccinesNeeded = input.next();
 
-        Report report1 = new Report(personName, age, countryNames, vaccinesNeeded);
+        Report report1 = new Report(personName, age, countryNames);
+
+        boolean keepGoing = true;
+        String vaccinesNeeded = "";
+        System.out.println("Enter the vaccine name (or q to finish report)");
+        while (keepGoing) {
+            vaccinesNeeded = input.next();
+            if (vaccinesNeeded.equals("q")) {
+                keepGoing = false;
+
+            } else {
+                report1.addVaccineInfo(vax.getSpecificVaccine(vaccinesNeeded));
+                System.out.println("Enter the vaccine name (or q to finish report)");
+            }
+        }
+
 
         lib.addInfo(report1);
 
@@ -117,6 +136,25 @@ public class ReportApp {
         System.out.println("Viewing All Reports: \n");
         for (Report reports : lib.getReportList()) {
             System.out.println(reports.getPersonName() + "--" + reports.getCountryName());
+
+        }
+
+
+    }
+
+    private void printSpecificReport() {
+        System.out.println("Please Enter a Patient's name to print their report (or q to return to menu");
+        boolean keepGoing = true;
+        //String printName = input.next();
+        String printName = input.next();
+        while (keepGoing) {
+            if (printName.equals("q")) {
+                keepGoing = false;
+
+            } else {
+                System.out.println(lib.getSpecificReport(printName).toString());
+                keepGoing = false;
+            }
         }
     }
 }

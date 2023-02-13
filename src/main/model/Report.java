@@ -1,20 +1,22 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Report {
 
     private String personName;
     private int age;
     private String countryName;
-    private String vaccineInfo;
+    private ArrayList<String> vaccineInfo;
 
     // REQUIRES:
     // MODIFIES:
     // EFFECTS:
-    public Report(String personName, Integer age, String countryName, String vaccineInfo) {
+    public Report(String personName, Integer age, String countryName) {
         this.personName = personName;
         this.age = age;
         this.countryName = countryName;
-        this.vaccineInfo = vaccineInfo;
+        vaccineInfo = new ArrayList<>();
     }
 
 
@@ -42,16 +44,16 @@ public class Report {
         this.countryName = countryName;
     }
 
-    public String getVaccineInfo() {
+    public ArrayList<String> getVaccineInfo() {
         return vaccineInfo;
     }
 
-    public void setVaccineInfo(String vaccineInfo) {
-        this.vaccineInfo = vaccineInfo;
+    public void addVaccineInfo(String vaccine) {
+        vaccineInfo.add(vaccine);
     }
 
-//    @Override
-//    public String toString() {
-//        return "Report{" + "personName='" + personName + '\'' + ", age=" + age + ", countryName='" + countryName + '\'' + ", vaccineInfo='" + vaccineInfo + '\'' + '}';
-//    }
+    @Override
+    public String toString() {
+        return "Travel Report for " +  personName + "\n Age: " + age + "\n Country: " + countryName + "\n Vaccines: " + vaccineInfo;
+    }
 }

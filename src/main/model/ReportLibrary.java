@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-
+//Represents a report library with a title and a list of reports
 public class ReportLibrary {
     private String title;
     private ArrayList<Report> reportList;
@@ -56,7 +56,7 @@ public class ReportLibrary {
     public String printReport() {
         String str = "";
         for (Report info : reportList) {
-            str = info.getPersonName() + info.getAge() + info.getCountryName() + info.getVaccineInfo() + str;
+            str = info.toString() + "\n" + str;
         }
         return str;
     }

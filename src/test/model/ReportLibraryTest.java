@@ -29,7 +29,7 @@ class ReportLibraryTest {
     @Test
     public void testAddingToInfoList(){
         assertEquals(0, reportLibrary1.getInfoListSize());
-        info1 = new Report("name", 0 , "country", "vaccine");
+        info1 = new Report("name", 0 , "country");
         reportLibrary1.addInfo(info1);
         assertEquals(1, reportLibrary1.getInfoListSize());
     }
@@ -37,8 +37,8 @@ class ReportLibraryTest {
     @Test
     public void testAddingMultipleInfoToInfoList(){
         assertEquals(0, reportLibrary1.getInfoListSize());
-        info1 = new Report("name", 0 , "country", "vaccine");
-        info2 = new Report("Test2", 1, "Mexico", "Vaccines");
+        info1 = new Report("name", 0 , "country");
+        info2 = new Report("Test2", 1, "Mexico");
         reportLibrary1.addInfo(info1);
         reportLibrary1.addInfo(info2);
         assertEquals(2, reportLibrary1.getInfoListSize());
@@ -47,7 +47,7 @@ class ReportLibraryTest {
     @Test
     public void testRemovingInfoFromInfoList() {
         assertEquals(0, reportLibrary1.getInfoListSize());
-        info1 = new Report("name", 0 , "country", "vaccine");
+        info1 = new Report("name", 0 , "country");
         reportLibrary1.addInfo(info1);
         assertEquals(1, reportLibrary1.getInfoListSize());
         reportLibrary1.removeInfo(info1);
@@ -57,18 +57,18 @@ class ReportLibraryTest {
     @Test
     public void testPrintingMultipleInfo(){
         assertEquals(0, reportLibrary1.getInfoListSize());
-        info1 = new Report("name", 0 , "country", "vaccine");
-        info2 = new Report("Test2", 1, "Mexico", "Vaccines");
+        info1 = new Report("name", 0 , "country");
+        info2 = new Report("Test2", 1, "Mexico");
         reportLibrary1.addInfo(info1);
         reportLibrary1.addInfo(info2);
-        assertEquals("Test21MexicoVaccines" + "name0countryvaccine", reportLibrary1.printReport());
+        assertEquals(info2.toString() + "\n" + info1.toString() + "\n" , reportLibrary1.printReport());
     }
 
     @Test
     public void testPrintingSpecificReport() {
         assertEquals(0, reportLibrary1.getInfoListSize());
-        info1 = new Report("name", 0 , "country", "vaccine");
-        info2 = new Report("Test2", 1, "Mexico", "Vaccines");
+        info1 = new Report("name", 0 , "country");
+        info2 = new Report("Test2", 1, "Mexico");
         reportLibrary1.addInfo(info1);
         reportLibrary1.addInfo(info2);
         assertEquals(info2, reportLibrary1.getSpecificReport("Test2"));
