@@ -16,7 +16,7 @@
 
 **User Stories**
 - As a user I want to be able to generate a report of vaccine recommendations for a given person's destination(s)
-- As a user I want to be able to save the generated reports
+- As a user I want to be able to add the generated reports in a reports library
 - As a user I want to be able to see a list of reports made 
 - As a user I want to be able to select reports and view them in detail
 
