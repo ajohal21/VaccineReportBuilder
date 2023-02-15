@@ -145,13 +145,17 @@ public class ReportApp {
     // MODIFIES:
     // EFFECTS: prompts user to enter a name and prints the corresponding report
     private void printSpecificReport() {
-        System.out.println("Please Enter a Patient's name to print their report (or q to return to menu");
+       // System.out.println("Please Enter a Patient's name to print their report (or q to return to menu)");
         boolean keepGoing = true;
         //String printName = input.next();
-        String printName = input.next();
+      //  String printName = input.next();
         while (keepGoing) {
+            System.out.println("Please Enter a Patient's name to print their report (or q to return to menu)");
+            String printName = input.next();
             if (printName.equals("q")) {
                 keepGoing = false;
+            } else if (lib.getSpecificReport(printName) == null) {
+                System.out.println("Sorry no such report exists, please try a different name");
 
             } else {
                 System.out.println(lib.getSpecificReport(printName).toString());
