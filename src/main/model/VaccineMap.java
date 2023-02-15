@@ -9,7 +9,7 @@ public class VaccineMap {
     private HashMap<String, String> vaccines;
 
     // REQUIRES:
-    // MODIFIES: this
+    // MODIFIES:
     // EFFECTS: Creates a VaccineMap object, with vaccine name as the key
     public VaccineMap() {
         vaccines = new HashMap<>();

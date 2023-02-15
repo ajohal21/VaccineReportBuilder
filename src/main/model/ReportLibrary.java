@@ -10,7 +10,7 @@ public class ReportLibrary {
 
 
     // REQUIRES:
-    // MODIFIES: this
+    // MODIFIES:
     // EFFECTS: Creates a report library object
     public ReportLibrary(String title) {
         this.title = title;

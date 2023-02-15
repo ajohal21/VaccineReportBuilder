@@ -10,8 +10,8 @@ public class Report {
     private ArrayList<String> vaccineInfo;
 
     // REQUIRES:
-    // MODIFIES: this
-    // EFFECTS: constructor
+    // MODIFIES:
+    // EFFECTS: Creates report object
     public Report(String personName, Integer age, String countryName) {
         this.personName = personName;
         this.age = age;
