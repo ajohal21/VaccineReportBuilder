@@ -57,6 +57,8 @@ public class ReportApp {
             viewReports();
         } else if (command.equals("s")) {
             printSpecificReport();
+        } else if (command.equals("r")) {
+            removeSpecificReport();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -83,6 +85,9 @@ public class ReportApp {
         System.out.println("\tv -> View Reports");
         System.out.println("\ts -> Print Specific Report");
         System.out.println("\tp -> Print Report Library");
+        if (lib.getInfoListSize() > 0) {
+            System.out.println("\tr -> Remove a specific Report");
+        }
         System.out.println("\tq -> quit");
     }
 
@@ -160,6 +165,32 @@ public class ReportApp {
             } else {
                 System.out.println(lib.getSpecificReport(printName).toString());
                 keepGoing = false;
+            }
+        }
+    }
+
+    // REQUIRES:
+    // MODIFIES: ReportLibrary
+    // EFFECTS: prompts user to enter a name and removes the report from the report library
+    private void removeSpecificReport() {
+        boolean keepGoing = true;
+        while (keepGoing) {
+            System.out.println("Please enter a Patient's name to remove their report from the library \n"
+                    + " or q to return to the menu");
+            String removeName = input.next();
+            if (removeName.equals("q")) {
+                keepGoing = false;
+            } else if (lib.getSpecificReport(removeName) == null) {
+                System.out.println("Sorry no such report exists, please try a different name");
+            } else {
+                for (Report report : lib.getReportList()) {
+                    if (report.getPersonName().equals(removeName)) {
+                        System.out.println(report.getPersonName() + " Report Removed");
+                        lib.removeInfo(report);
+                        keepGoing = false;
+                        break;
+                    }
+                }
             }
         }
     }
