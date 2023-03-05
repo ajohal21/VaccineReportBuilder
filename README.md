@@ -19,6 +19,8 @@
 - As a user I want to be able to add the generated reports in a reports library
 - As a user I want to be able to see a list of reports made 
 - As a user I want to be able to select reports and view them in detail
+- As a user I want to be able to save the Report Library (containing reports)
+- As a user I want the option to load my Report Library from file
 
 
 
