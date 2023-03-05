@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.stream.Stream;
+import jdk.jfr.Category;
 
 public class JsonReader {
     private String source;
