@@ -1,8 +1,12 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 
-public class Report {
+public class Report implements Writable {
 
     private String personName;
     private int age;
@@ -84,4 +88,23 @@ public class Report {
                 +  personName + "\n Age: " + age + "\n Country: " + countryName + "\n Vaccines: " + vaccineInfo;
 
     }
+
+    //@Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", personName);
+        json.put("age", age);
+        json.put("country", countryName);
+        json.put("vaccines", vaccinesToJson());
+        return json;
+    }
+
+    public JSONArray vaccinesToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (String v : vaccineInfo) {
+            jsonArray.put(v);
+        }
+        return jsonArray;
+    }
+
 }

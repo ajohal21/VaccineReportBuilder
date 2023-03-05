@@ -1,9 +1,15 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 //Represents a report library with a title and a list of reports
-public class ReportLibrary {
+public class ReportLibrary implements Writable {
     private String title;
     private ArrayList<Report> reportList;
 
@@ -71,5 +77,24 @@ public class ReportLibrary {
             }
         }
         return null;
+    }
+
+
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("title", title);
+        json.put("reportList", reportsToJson());
+        return json;
+    }
+
+    public JSONArray reportsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Report r : reportList) {
+            jsonArray.put(r.toJson());
+        }
+        return jsonArray;
     }
 }

@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 
 //Represents a vaccine having a name, dosage, and frequency
@@ -29,6 +31,17 @@ public class VaccineMap {
         }
         return null;
     }
+
+
+
+//    public JSONObject toJson() {
+//        JSONObject json = new JSONObject();
+//        json.put("name", personName);
+//        json.put("age", age);
+//        json.put("country", countryName);
+//        json.put("vaccines", vaccinesToJson());
+//        return json;
+//    }
 
 
 }

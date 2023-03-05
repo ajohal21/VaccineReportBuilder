@@ -3,7 +3,11 @@ package ui;
 import model.Report;
 import model.ReportLibrary;
 import model.VaccineMap;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -16,6 +20,9 @@ public class ReportApp {
     private ReportLibrary lib;
     private VaccineMap vax;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+    private static final String JSON_STORE = "./data/reportLib.json";
 
     public ReportApp() {
         runApplication();
@@ -55,10 +62,14 @@ public class ReportApp {
             printInfo();
         } else if (command.equals("v")) {
             viewReports();
-        } else if (command.equals("s")) {
+        } else if (command.equals("h")) {
             printSpecificReport();
         } else if (command.equals("r")) {
             removeSpecificReport();
+        } else if (command.equals("l")) {
+            loadReportLibrary();
+        } else if (command.equals("s")) {
+            saveReportLibrary();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -73,6 +84,8 @@ public class ReportApp {
         vax = new VaccineMap();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     // REQUIRES:
@@ -83,11 +96,13 @@ public class ReportApp {
         System.out.println("\nSelect from:");
         System.out.println("\tm -> Make new report");
         System.out.println("\tv -> View Reports");
-        System.out.println("\ts -> Print Specific Report");
+        System.out.println("\th -> Print Specific Report");
         System.out.println("\tp -> Print Report Library");
         if (lib.getInfoListSize() > 0) {
             System.out.println("\tr -> Remove a specific Report");
         }
+        System.out.println("\tl -> Load Report Library");
+        System.out.println("\ts -> Save Report Library");
         System.out.println("\tq -> quit");
     }
 
@@ -192,6 +207,27 @@ public class ReportApp {
                     }
                 }
             }
+        }
+    }
+
+    private void saveReportLibrary() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(lib);
+            jsonWriter.close();
+            System.out.println("Saved " + lib.getTitle() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    private void loadReportLibrary() {
+        try {
+            lib = jsonReader.read();
+            System.out.println("Loaded " + lib.getTitle() + " from " + JSON_STORE);
+           //+ " -- total reports: " + lib.getInfoListSize());
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 }
