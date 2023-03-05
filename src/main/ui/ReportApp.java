@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 
 //Credit to: https://github.students.cs.ubc.ca/CPSC210/TellerApp.git teller app for the code structure
+//Credit to: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git for data preservence code structure
 //Report Application
 public class ReportApp {
 
@@ -210,6 +211,9 @@ public class ReportApp {
         }
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: saves the report library to file
     private void saveReportLibrary() {
         try {
             jsonWriter.open();
@@ -221,6 +225,9 @@ public class ReportApp {
         }
     }
 
+    // REQUIRES:
+    // MODIFIES: this
+    // EFFECTS: loads the report library from file
     private void loadReportLibrary() {
         try {
             lib = jsonReader.read();

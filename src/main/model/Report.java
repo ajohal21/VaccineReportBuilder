@@ -99,6 +99,9 @@ public class Report implements Writable {
         return json;
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: returns vaccines in this report as a JSON array
     public JSONArray vaccinesToJson() {
         JSONArray jsonArray = new JSONArray();
         for (String v : vaccineInfo) {

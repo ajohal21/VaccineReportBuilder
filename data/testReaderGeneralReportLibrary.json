@@ -1,0 +1,20 @@
+{
+    "reportList": [
+        {
+            "country": "Mexico",
+            "vaccines": ["Hepatitis A"],
+            "name": "Aman",
+            "age": 29
+        },
+        {
+            "country": "England",
+            "vaccines": [
+                "Typhoid",
+                "Rabies"
+            ],
+            "name": "Eugene",
+            "age": 2
+        }
+    ],
+    "title": "test"
+}

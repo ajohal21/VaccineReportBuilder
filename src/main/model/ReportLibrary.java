@@ -89,6 +89,9 @@ public class ReportLibrary implements Writable {
         return json;
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: returns reports in the reportLibrary as a JSON array
     public JSONArray reportsToJson() {
         JSONArray jsonArray = new JSONArray();
 

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-class JsonWriterTest {
+class JsonWriterTest extends JsonTest {
 
     @Test
     void testWriterInvalidFile() {
@@ -67,12 +67,8 @@ class JsonWriterTest {
                 reports.add(r);
             }
             assertEquals(2, reports.size());
-            assertEquals("Aman", reports.get(0).getPersonName());
-            assertEquals("Eugene", reports.get(1).getPersonName());
-            assertEquals(29, reports.get(0).getAge());
-            assertEquals("Mexico", reports.get(0).getCountryName());
-            assertEquals("[Hepatitis A]" , reports.get(0).getVaccineInfo().toString());
-            assertEquals("[Typhoid, Rabies]", reports.get(1).getVaccineInfo().toString());
+            checkReport("Aman", 29, "Mexico", "[Hepatitis A]", reports.get(0));
+            checkReport("Eugene", 2, "England", "[Typhoid, Rabies]", reports.get(1));
         } catch (IOException e) {
             fail("Should not see exception");
         }
