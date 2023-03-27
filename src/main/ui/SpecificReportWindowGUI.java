@@ -28,8 +28,6 @@ public class SpecificReportWindowGUI {
         label.setIcon(bg);
 
 
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500,500);
         //frame.setLayout(null);
         frame.setVisible(true);
