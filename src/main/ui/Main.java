@@ -3,12 +3,19 @@ package ui;
 import model.Report;
 import model.ReportLibrary;
 
-import java.io.FileNotFoundException;
+import javax.swing.*;
+
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
-        new ReportApp();
+        new GUI();
+
+
+
+
+        //new ReportApp();
+
 
 
     }
