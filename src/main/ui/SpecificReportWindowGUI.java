@@ -15,6 +15,8 @@ public class SpecificReportWindowGUI {
     // EFFECTS: Creates a JLabel with full report details for a given patient
     SpecificReportWindowGUI(Report report) {
 
+        ImageIcon bg = new ImageIcon("data/bg.png");
+
         JLabel label = new JLabel();
         label.setText("<html>" + report.toString().replace("\n", "<br>") + "</html>");
         label.setFont(new Font("MV Boli", Font.BOLD, 16));
@@ -23,10 +25,12 @@ public class SpecificReportWindowGUI {
         label.setVerticalAlignment(JLabel.CENTER);
         label.setHorizontalAlignment(JLabel.CENTER);
 
+        label.setIcon(bg);
+
 
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300,300);
+        frame.setSize(500,500);
         //frame.setLayout(null);
         frame.setVisible(true);
         frame.add(label);

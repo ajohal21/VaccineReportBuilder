@@ -72,7 +72,7 @@ public class GUI extends JFrame implements ActionListener {
         saveButton.setFont(new Font("MV Boli", Font.BOLD, 10));
 
 
-        ImageIcon logo = new ImageIcon("src/main/ui/plane.png");
+        ImageIcon logo = new ImageIcon("data/plane.png");
 
         JLabel logoLabel = new JLabel();
 

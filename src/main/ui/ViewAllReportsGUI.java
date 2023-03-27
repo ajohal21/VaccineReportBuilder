@@ -23,6 +23,8 @@ public class ViewAllReportsGUI {
         }
         txt = txt + "</html>";
 
+        ImageIcon vax = new ImageIcon("data/needle.png");
+
 
         JLabel label = new JLabel();
         label.setText(txt);
@@ -31,11 +33,12 @@ public class ViewAllReportsGUI {
         label.setVerticalTextPosition(JLabel.CENTER);
         label.setVerticalAlignment(JLabel.CENTER);
         label.setHorizontalAlignment(JLabel.CENTER);
+        label.setIcon(vax);
 
 
 
 
-        frame.setSize(300,300);
+        frame.setSize(500,500);
         frame.setVisible(true);
         frame.add(label);
 
