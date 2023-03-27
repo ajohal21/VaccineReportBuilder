@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+
 //Credit to https://www.youtube.com/watch?v=Kmgo00avvEw for Java Swift Tutorial
 // Represents the graphical user interface for the Travel Report Builder
 public class GUI extends JFrame implements ActionListener {
