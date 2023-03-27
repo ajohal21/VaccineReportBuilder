@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+// Represents the graphical user interface for the Travel Report Builder
 public class GUI extends JFrame implements ActionListener {
 
     private JButton createButton;
@@ -26,10 +27,14 @@ public class GUI extends JFrame implements ActionListener {
     private JsonReader jsonReader;
     private static final String JSON_STORE = "./data/reportLib.json";
 
+    //Initializes the Main screen and all the buttons and options
     public GUI() {
         runGui();
     }
 
+    // REQUIRES:
+    // MODIFIES: this
+    // EFFECTS: Creates new JFrame with splash screen and creates buttons and adds them to JFrame
     @SuppressWarnings("methodlength")
     private void runGui() {
         library = new ReportLibrary("Set 1");
@@ -101,6 +106,9 @@ public class GUI extends JFrame implements ActionListener {
 
     }
 
+    // REQUIRES:
+    // MODIFIES: this
+    // EFFECTS: Provides the user with prompts to help create a report, adds report to the library
     @SuppressWarnings("methodlength")
     private void makeReportGui() {
         VaccineMap vax = new VaccineMap();
@@ -123,7 +131,6 @@ public class GUI extends JFrame implements ActionListener {
 
         int result = JOptionPane.showConfirmDialog(null, options, "Select Vaccines", JOptionPane.DEFAULT_OPTION);
         ArrayList<String> selectedVaccines = new ArrayList<String>();
-
         if (result == JOptionPane.OK_OPTION) {
 
             for (Object checkBox : options) {
@@ -136,11 +143,13 @@ public class GUI extends JFrame implements ActionListener {
         for (String vaccine : selectedVaccines) {
             report.addVaccineInfo(vax.getSpecificVaccine(vaccine));
         }
-
         library.addInfo(report);
-
     }
 
+    // REQUIRES:
+    // MODIFIES: this
+    // EFFECTS: Prompts the user to enter a name, will then make a new SpecificReportWindow to display report
+                //if no name exists, user gets a Warning popup
     private void viewReport() {
         String name = JOptionPane.showInputDialog("Please Enter Patient Name:");
         Report report = library.getSpecificReport(name);
@@ -153,10 +162,16 @@ public class GUI extends JFrame implements ActionListener {
         }
     }
 
+    // REQUIRES:
+    // MODIFIES: this
+    // EFFECTS: makes a new viewAll window to display all reports in the library
     private void viewAllReports() {
         ViewAllReportsGUI viewAll = new ViewAllReportsGUI(library);
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: Saves the report library to a file
     private void saveLib() {
         try {
             jsonWriter.open();
@@ -171,6 +186,9 @@ public class GUI extends JFrame implements ActionListener {
         }
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: loads the report library from a file
     private void loadLib() {
         try {
             library = jsonReader.read();
@@ -187,6 +205,9 @@ public class GUI extends JFrame implements ActionListener {
     }
 
 
+    // REQUIRES:
+    // MODIFIES: this
+    // EFFECTS: Calls appropriate functions based on which button is pressed
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == createButton) {

@@ -7,10 +7,14 @@ import model.VaccineMap;
 import javax.swing.*;
 import java.awt.*;
 
+//Represents a JFrame window to display all reports in library
 public class ViewAllReportsGUI {
 
     JFrame frame = new JFrame();
 
+    // REQUIRES:
+    // MODIFIES: this
+    // EFFECTS: Creates a JLabel with Name--Destination for every report in the library
     ViewAllReportsGUI(ReportLibrary lib) {
 
         String txt = "<html>";
@@ -22,11 +26,12 @@ public class ViewAllReportsGUI {
 
         JLabel label = new JLabel();
         label.setText(txt);
+        label.setFont(new Font("MV Boli", Font.BOLD, 16));
         label.setHorizontalTextPosition(JLabel.CENTER);
         label.setVerticalTextPosition(JLabel.CENTER);
         label.setVerticalAlignment(JLabel.CENTER);
         label.setHorizontalAlignment(JLabel.CENTER);
-        label.setFont(new Font("MV Boli", Font.PLAIN, 10));
+
 
 
 
