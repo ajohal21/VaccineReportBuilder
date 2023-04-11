@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Report;
 import model.ReportLibrary;
 import model.VaccineMap;
@@ -10,6 +12,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,6 +45,7 @@ public class GUI extends JFrame implements ActionListener {
         library = new ReportLibrary("Set 1");
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
+        EventLog.getInstance().clear();
 
         createButton = new JButton();
         createButton.setBounds(125, 15, 100, 50);
@@ -97,7 +102,17 @@ public class GUI extends JFrame implements ActionListener {
 
         JFrame frame = new JFrame();
         frame.setTitle("Vaccine Report Library");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                for (Event event : EventLog.getInstance()) {
+                    System.out.println(event.toString() + "\n");
+                }
+                System.exit(0);
+            }
+        });
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false); //prevent window resizing
         frame.setLayout(null);
         frame.setVisible(true);

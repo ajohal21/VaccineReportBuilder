@@ -34,5 +34,27 @@
 - You can reload the state of my application by clicking the "Load" button
 
 
+## Phase 4: Task 2
+- Implementing event logging for:
+  - Adding a Report to a Report Library
+  - Veiwing a specific Report
+  - Veiwing all Reports in Report Library
+- Sample Event logging print out to console:
+Tue Apr 11 14:06:52 PDT 2023
+Event log cleared.
 
+Tue Apr 11 14:07:03 PDT 2023
+Added Report for Aman J to: Set 1
+
+Tue Apr 11 14:07:07 PDT 2023
+Displaying all reports in: Set 1
+
+Tue Apr 11 14:07:21 PDT 2023
+Added Report for Eugene W to: Set 1
+
+Tue Apr 11 14:07:25 PDT 2023
+Displaying all reports in: Set 1
+
+Tue Apr 11 14:07:30 PDT 2023
+Displaying Report for: Aman J
 

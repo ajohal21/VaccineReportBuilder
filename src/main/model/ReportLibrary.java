@@ -32,12 +32,15 @@ public class ReportLibrary implements Writable {
     // EFFECTS: Adds a report to the Report library
     public void addInfo(Report info) {
         reportList.add(info);
+        EventLog.getInstance().logEvent(new Event("Added Report for " + info.getPersonName() + " to: "
+                + getTitle()));
     }
 
     // REQUIRES:
     // MODIFIES:
     // EFFECTS: returns the arrayList of reports in the libary
     public ArrayList<Report> getReportList() {
+        EventLog.getInstance().logEvent(new Event("Displaying all reports in: " + getTitle()));
         return reportList;
     }
 
@@ -64,6 +67,7 @@ public class ReportLibrary implements Writable {
         for (Report info : reportList) {
             str = info.toString() + "\n" + str;
         }
+
         return str;
     }
 
@@ -73,6 +77,7 @@ public class ReportLibrary implements Writable {
     public Report getSpecificReport(String s) {
         for (Report report : reportList) {
             if (report.getPersonName().equals(s)) {
+                EventLog.getInstance().logEvent(new Event("Displaying Report for: " + report.getPersonName()));
                 return report;
             }
         }
