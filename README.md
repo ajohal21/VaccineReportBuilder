@@ -58,3 +58,17 @@ Displaying all reports in: Set 1
 Tue Apr 11 14:07:30 PDT 2023
 Displaying Report for: Aman J
 
+## Phase 4: Task 3
+
+Reflecting on my UML diagram and the process of creating it I noted that lots of my project 
+relied on very large classes and/or very large methods, most notably the GUI class. Within
+the GUI class there are two methods which supress the "methodLength" warning, and many other methods 
+defined in the class, most of which alter the behaviour of the program. This evidently
+does not follow the single responsibility principle (each class should be centered around
+one concept or responsibility). Extracting methods, like button initialization, or creating a separate
+class for the "create a report" button would decrease coupling make the code simpler.
+
+Futhermore, it is clear that the HashMap of vaccine info has no associations, while there are
+dependencies in certain classes, perhaps there could be improvement by declaring the map as a private 
+field within the report class, since the user does not add or remove from the map, the map does not get edited
+by the user. The use is for simple look-up so it essentially acts as a Constant.
